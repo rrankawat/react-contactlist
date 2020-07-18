@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const NotFound = () => {
   return (
-    <h1 className="my-5 text-center">
-      404 <span className="text-purple">Page Not Found</span>
-      <p>Sorry the page you are looking for is not available!</p>
-    </h1>
+    <Fragment>
+      <h1 className="mt-5">
+        404 <span className="text-purple">Page Not Found</span>
+      </h1>
+      <p>Sorry :( The page you are looking for is not available!</p>
+    </Fragment>
   );
 };
 

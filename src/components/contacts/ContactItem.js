@@ -12,11 +12,12 @@ const ContactItem = () => {
           <div className="contact">
             <h3>John Doe</h3>
             <div>
-              <IoMdMail className="mr-1" />{' '}
-              <span>rakesh.rankawat@outlook.com</span>
+              <FaPhone className="mb-1 mr-1 text-purple" />{' '}
+              <span>555-555-5555</span>
             </div>
             <div>
-              <FaPhone className="mb-1 mr-1" /> <span>555-555-5555</span>
+              <IoMdMail className="mr-1 text-purple" />{' '}
+              <span>rakesh.rankawat@outlook.com</span>
             </div>
           </div>
 

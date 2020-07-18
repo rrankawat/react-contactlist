@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'reactstrap';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
+import AuthContext from '../../context/auth/authContext';
+
 const Navbar = () => {
+  const authContext = useContext(AuthContext);
+  const { user, logout } = authContext;
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -23,18 +28,20 @@ const Navbar = () => {
         </button>
 
         <Collapse isOpen={isOpen} navbar>
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
-              <Link to="/#" className="nav-link">
-                Hi, <strong>User</strong>
-              </Link>
-            </li>
-            <li className="nav-item active">
-              <Link to="/#" className="nav-link">
-                Logout
-              </Link>
-            </li>
-          </ul>
+          {user && (
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item active">
+                <Link to="/#" className="nav-link">
+                  Hi, <strong>{user.firstName}</strong>
+                </Link>
+              </li>
+              <li className="nav-item active">
+                <Link to="/#" className="nav-link" onClick={logout}>
+                  Logout
+                </Link>
+              </li>
+            </ul>
+          )}
         </Collapse>
       </div>
     </nav>

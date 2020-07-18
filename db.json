@@ -4,8 +4,8 @@
       "id": 1,
       "firstName": "John",
       "lastName": "Doe",
-      "username": "admin",
-      "password": "admin"
+      "email": "test@test.com",
+      "password": "123456"
     }
   ],
   "contacts": [
