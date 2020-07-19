@@ -58,9 +58,7 @@ const Login = () => {
     }
   };
 
-  const onChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
+  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
   return (
     <div className="box-width mt-5 mx-auto">
@@ -87,7 +85,7 @@ const Login = () => {
         <div className="form-group">
           <label htmlFor="phone">Password</label>
           <input
-            type="text"
+            type="password"
             name="password"
             className={`form-control ${errors.password && 'is-invalid'}`}
             placeholder="Your Password"

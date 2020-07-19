@@ -1,6 +1,5 @@
 import {
   GET_CONTACTS,
-  GET_CONTACT,
   ADD_CONTACT,
   UPDATE_CONTACT,
   DELETE_CONTACT,
@@ -8,6 +7,8 @@ import {
   CLEAR_FILTER,
   CONTACT_ERROR,
   CLEAR_ERRORS,
+  SET_CURRENT,
+  CLEAR_CURRENT,
 } from '../types';
 
 export default (state, action) => {
@@ -17,24 +18,35 @@ export default (state, action) => {
     case GET_CONTACTS:
       return {
         ...state,
-        todos: payload,
+        contacts: payload,
       };
     case ADD_CONTACT:
       return {
         ...state,
-        todos: [payload, ...state.todos],
+        contacts: [payload, ...state.contacts],
       };
     case DELETE_CONTACT:
       return {
         ...state,
-        todos: state.todos.filter((todo) => todo._id !== payload),
+        contacts: state.contacts.filter((contact) => contact.id !== payload),
+      };
+    case UPDATE_CONTACT:
+      return {
+        ...state,
+        contacts: state.contacts.map((contact) =>
+          contact.id === payload.id ? payload : contact
+        ),
       };
     case FILTER_CONTACTS:
       return {
         ...state,
-        filtered: state.todos.filter((todo) => {
+        filtered: state.contacts.filter((contact) => {
           const regex = new RegExp(payload, 'gi');
-          return todo.title.match(regex);
+          return (
+            contact.name.match(regex) ||
+            contact.email.match(regex) ||
+            contact.phone.match(regex)
+          );
         }),
       };
     case CLEAR_FILTER:
@@ -51,6 +63,16 @@ export default (state, action) => {
       return {
         ...state,
         error: null,
+      };
+    case SET_CURRENT:
+      return {
+        ...state,
+        current: payload,
+      };
+    case CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null,
       };
     default:
       return state;

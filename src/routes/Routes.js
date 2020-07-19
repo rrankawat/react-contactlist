@@ -45,7 +45,7 @@ const Routes = () => {
   return (
     <Router>
       <Navbar />
-      <div className="container">
+      <div className="container pt-5">
         {isAuthenticated ? (
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/contacts" />} />

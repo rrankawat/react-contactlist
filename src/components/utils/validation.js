@@ -13,3 +13,11 @@ export const isEmail = (value) => {
   }
   return false;
 };
+
+// Min length
+export const isPhone = (value) => {
+  if (value.length !== 10) {
+    return true;
+  }
+  return false;
+};

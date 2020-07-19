@@ -20,6 +20,13 @@
   height: 100vh;
 }
 
+.box-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
 .spinner {
   color: #7952b3;
 }
